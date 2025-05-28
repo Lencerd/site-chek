@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>СССР</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --main-bg: #E5E5E5; /* Серый фон */
+      --ussr-dark: #A81010; /* Красный */
+      --ussr-light: #D3D3D3; /* Светло-серый */
+      --text-dark: #1F2526; /* Тёмный текст */
+      --accent: #FFD700; /* Золотой (звезда) */
+      --ussr-transparent: rgba(168, 16, 16, 0.9);
+      --ussr-light-transparent: rgba(211, 211, 211, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #E5E5E5 0%, #D0D0D0 100%), url('https://www.transparenttextures.com/patterns/concrete-wall.png');
+      background-blend-mode: overlay;
+      background-repeat: repeat;
+      background-size: auto;
+      color: var(--text-dark);
+      min-height: 100vh;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 25% 75%, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+      animation: glow 10s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { opacity: 0.1; }
+      100% { opacity: 0.3; }
+    }
+
+    header {
+      background: linear-gradient(180deg, var(--ussr-transparent) 0%, rgba(168, 16, 16, 0.85) 100%), url('https://www.transparenttextures.com/patterns/concrete-wall.png');
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border-bottom: 4px solid var(--accent);
+      padding: 5px 0;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .topbar img {
+      height: 50px;
+      margin-right: 20px;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+      transition: transform 0.3s ease;
+    }
+
+    .topbar img:hover {
+      transform: rotate(5deg) scale(1.1);
+    }
+
+    .college-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+
+    nav {
+      background: linear-gradient(180deg, var(--ussr-light-transparent) 0%, rgba(211, 211, 211, 0.75) 100%);
+      padding: 10px 20px;
+      text-align: center;
+      animation: slideIn 0.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+      position: relative;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      transform: scale(1.1);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      background: var(--accent);
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 90%;
+    }
+
+    main {
+      padding-top: 120px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    h1.hero {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      text-align: center;
+      color: var(--ussr-dark);
+      margin-bottom: 20px;
+      position: relative;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    h1.hero::before,
+    h1.hero::after {
+      content: '★';
+      color: var(--accent);
+      font-size: 2rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: pulse 2s infinite alternate;
+    }
+
+    h1.hero::before {
+      left: 15%;
+    }
+
+    h1.hero::after {
+      right: 15%;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: translateY(-50%) scale(1); }
+      100% { transform: translateY(-50%) scale(1.1); }
+    }
+
+    p.subtitle {
+      text-align: center;
+      font-size: 1.4rem;
+      color: var(--ussr-dark);
+      font-weight: 400;
+      margin-bottom: 50px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards 0.5s;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+
+    section {
+      margin-bottom: 70px;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      border: 2px solid var(--ussr-light);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+    }
+
+    section h2.hero {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: var(--ussr-dark);
+      text-align: center;
+      margin-bottom: 25px;
+      position: relative;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    section h2.hero::before,
+    section h2.hero::after {
+      content: '☆';
+      color: var(--accent);
+      font-size: 1.5rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: pulse 2s infinite alternate;
+    }
+
+    section h2.hero::before {
+      left: 8%;
+    }
+
+    section h2.hero::after {
+      right: 8%;
+    }
+
+    iframe,
+    video {
+      display: block;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      border: 3px solid var(--ussr-dark);
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      background: linear-gradient(135deg, var(--ussr-light-transparent) 0%, rgba(211, 211, 211, 0.7) 100%);
+      padding: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    iframe:hover,
+    video:hover {
+      transform: scale(1.02);
+    }
+
+    #tools-widget {
+      background: linear-gradient(135deg, var(--ussr-light-transparent) 0%, rgba(211, 211, 211, 0.7) 100%);
+      border-radius: 15px;
+      padding: 30px;
+      color: var(--ussr-dark);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      border: 3px solid var(--ussr-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #tools-widget::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+      animation: rotateLight 10s infinite linear;
+      z-index: 0;
+    }
+
+    @keyframes rotateLight {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #tools-widget p {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+      position: relative;
+      z-index: 1;
+    }
+
+    #tools-widget select {
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      border: 2px solid var(--ussr-dark);
+      background: linear-gradient(135deg, var(--ussr-light-transparent) 0%, rgba(211, 211, 211, 0.7) 100%);
+      color: var(--ussr-dark);
+      width: 100%;
+      max-width: 350px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    #tools-widget select:hover {
+      transform: scale(1.05);
+    }
+
+    #toolInfo {
+      margin-top: 25px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    .carousel {
+      width: 100%;
+      height: 450px;
+      perspective: 1200px;
+      overflow: hidden;
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .carousel__stage {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease-out;
+      cursor: grab;
+    }
+
+    .carousel__slide {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 280px;
+      height: 400px;
+      margin: -200px -140px;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+      background: linear-gradient(135deg, var(--ussr-light-transparent) 0%, rgba(211, 211, 211, 0.7) 100%);
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 25px;
+      transition: all 0.4s ease;
+      border: 3px solid var(--ussr-dark);
+      overflow: hidden;
+    }
+
+    .carousel__slide:hover {
+      background: linear-gradient(135deg, var(--ussr-transparent) 0%, rgba(168, 16, 16, 0.85) 100%);
+      transform: scale(1.1) translateZ(80px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .carousel__slide img {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 2px solid var(--ussr-dark);
+      background: rgba(255, 255, 255, 0.3);
+      padding: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel__slide:hover img {
+      transform: scale(1.1);
+    }
+
+    .carousel__slide h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem;
+      margin-bottom: 15px;
+      color: var(--ussr-dark);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .carousel__slide p {
+      font-size: 1rem;
+      line-height: 1.5;
+      text-align: center;
+      color: var(--text-dark);
+    }
+
+    footer {
+      text-align: center;
+      background: linear-gradient(180deg, var(--ussr-transparent) 0%, rgba(168, 16, 16, 0.85) 100%), url('https://www.transparenttextures.com/patterns/concrete-wall.png');
+      color: white;
+      padding: 25px;
+      font-size: 1rem;
+      border-top: 4px solid var(--accent);
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
+      font-family: 'Bebas Neue', sans-serif;
+      position: relative;
+    }
+
+    footer::before {
+      content: '©';
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-right: 5px;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding-top: 180px;
+      }
+      h1.hero {
+        font-size: 2.8rem;
+      }
+      h1.hero::before, h1.hero::after {
+        font-size: 1.5rem;
+        left: 5%;
+        right: 5%;
+      }
+      section h2.hero {
+        font-size: 2rem;
+      }
+      section h2.hero::before, section h2.hero::after {
+        left: 2%;
+        right: 2%;
+      }
+      .topbar {
+        flex-direction: column;
+        text-align: center;
+      }
+      .topbar img {
+        margin-bottom: 15px;
+      }
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+      .carousel {
+        height: 350px;
+      }
+      .carousel__slide {
+        width: 220px;
+        height: 320px;
+        margin: -160px -110px;
+      }
+      .carousel__slide img {
+        max-height: 160px;
+      }
+      .carousel__slide h2 {
+        font-size: 1.4rem;
+      }
+      .carousel__slide p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding-top: 200px;
+      }
+      h1.hero {
+        font-size: 2.2rem;
+      }
+      section h2.hero {
+        font-size: 1.7rem;
+      }
+      .carousel {
+        height: 300px;
+      }
+      .carousel__slide {
+        width: 180px;
+        height: 260px;
+        margin: -130px -90px;
+      }
+      .carousel__slide img {
+        max-height: 130px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <img src="../png/logo.png" alt="Логотип" />
+      <div class="college-name">ГБПОУ "Южно-Уральский государственный технический колледж"</div>
+    </div>
+    <nav>
+      <a href="../HTML/index.html">Главная</a>
+      <a href="../HTML/Page 2.html">Русь: дерево</a>
+      <a href="../HTML/Page 3.html">Русь: камень</a>
+      <a href="../HTML/Page 4.html">Империя</a>
+      <a href="../HTML/Page 5.html">СССР</a>
+      <a href="../HTML/Page 6.html">РФ</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="hero">СССР</h1>
+    <p class="subtitle">Монументальность и индустриализация</p>
+
+    <section>
+      <h2 class="hero">Из чего строим?</h2>
+      <iframe src="../docs/iz-chego-stroim-ussr.pdf" height="550px" title="Из чего строим"></iframe>
+    </section>
+
+    <section>
+      <h2 class="hero">Чем строим?</h2>
+      <div id="tools-widget">
+        <p>Выберите инструмент:</p>
+        <select id="toolSelect" aria-label="Выберите инструмент">
+          <option value="бетономешалка">Бетономешалка</option>
+          <option value="краска">Краска для фресок</option>
+          <option value="арматура">Арматура</option>
+          <option value="кран">Башенный кран</option>
+        </select>
+        <div id="toolInfo"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hero">Что строим?</h2>
+      <div class="carousel" id="carousel">
+        <div class="carousel__stage" id="carouselStage">
+          <div class="carousel__slide">
+            <img src="../png/dk-ussr.jpg" alt="Дворец культуры" />
+            <h2>Дворец культуры</h2>
+            <p>Центры для рабочих с монументальными залами.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/zavod-ussr.jpg" alt="Завод" />
+            <h2>Завод</h2>
+            <p>Мощные промышленные комплексы советской индустрии.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/metro-ussr.jpg" alt="Метро" />
+            <h2>Метро</h2>
+            <p>Подземные станции с мозаиками и светом.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/kvartaly-ussr.jpg" alt="Жилые кварталы" />
+            <h2>Жилые кварталы</h2>
+            <p>Типовые дома для советских граждан.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hero">Кто строит?</h2>
+      <p class="subtitle">
+        Инженеры и рабочие СССР, строившие символы индустриального подъёма.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="hero">Как строит?</h2>
+      <video controls>
+        <source src="../video/kak-stroili-ussr.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    </section>
+
+    <section>
+      <h2 class="hero">Интерактивный практикум</h2>
+      <iframe src="../practice/ussr.html" height="550px" title="Практикум"></iframe>
+    </section>
+  </main>
+
+  <footer>
+    Электронный образовательный ресурс профессионально-ориентированного содержания.<br />
+    Автор: Коротыч Ольга Валерьевна, преподаватель истории
+  </footer>
+
+  <script>
+    function adjustMainPadding() {
+      const header = document.querySelector('header');
+      const main = document.querySelector('main');
+      const headerHeight = header.offsetHeight;
+      main.style.paddingTop = `${headerHeight + 30}px`;
+    }
+
+    window.addEventListener('load', adjustMainPadding);
+    window.addEventListener('resize', adjustMainPadding);
+
+    // Звук при скроллинге
+    const audio = new Audio('../audio/march.mp3');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > lastScroll && Math.abs(currentScroll - lastScroll) > 50) {
+        audio.currentTime = 0;
+        audio.play();
+      }
+      lastScroll = currentScroll;
+    });
+  </script>
+
+  <script>
+    const toolDescriptions = {
+      'бетономешалка': 'Бетономешалка – для массового строительства.',
+      'краска': 'Краска для фресок – для пропагандистских фресок.',
+      'арматура': 'Арматура – основа прочных конструкций.',
+      'кран': 'Башенный кран – для подъёма тяжёлых материалов.'
+    };
+    const select = document.getElementById('toolSelect');
+    const info = document.getElementById('toolInfo');
+    select.addEventListener('change', () => {
+      info.textContent = toolDescriptions[select.value];
+    });
+    info.textContent = toolDescriptions[select.value];
+  </script>
+
+  <script>
+    const carousel = document.getElementById('carousel');
+    const stage = document.getElementById('carouselStage');
+    const slides = stage.children;
+    const radius = 400;
+    const autoRotateSpeed = 0.03;
+    let autoRotate = true;
+    let rotationY = 0;
+    let dragging = false;
+    let lastX = 0;
+    let velocity = 0;
+    const slidesCount = slides.length;
+    const theta = 360 / slidesCount;
+
+    function setupCarousel() {
+      for (let i = 0; i < slidesCount; i++) {
+        const slide = slides[i];
+        const angle = theta * i;
+        slide.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+      }
+    }
+
+    function updateCarousel() {
+      stage.style.transform = `translateZ(-${radius}px) rotateY(${rotationY}deg)`;
+    }
+
+    setupCarousel();
+    updateCarousel();
+
+    function animate() {
+      if (!dragging && autoRotate) {
+        rotationY += autoRotateSpeed;
+      } else {
+        rotationY += velocity;
+        velocity *= 0.95;
+        if (Math.abs(velocity) < 0.001) velocity = 0;
+      }
+      updateCarousel();
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    carousel.addEventListener('mousedown', (e) => {
+      dragging = true;
+      lastX = e.clientX;
+      velocity = 0;
+      autoRotate = false;
+    });
+
+    window.addEventListener('mouseup', () => {
+      dragging = false;
+      autoRotate = true;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!dragging) return;
+      const deltaX = e.clientX - lastX;
+      rotationY += deltaX * 0.3;
+      velocity = deltaX * 0.1;
+      lastX = e.clientX;
+      updateCarousel();
+    });
+
+    carousel.addEventListener('touchstart', (e) => {
+      dragging = true;
+      lastX = e.touches[0].clientX;
+      velocity = 0;
+      autoRotate = false;
+    });
+
+    window.addEventListener('touchend', () => {
+      dragging = false;
+      autoRotate = true;
+    });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!dragging) return;
+      const deltaX = e.touches[0].clientX - lastX;
+      rotationY += deltaX * 0.3;
+      velocity = deltaX * 0.1;
+      lastX = e.touches[0].clientX;
+      updateCarousel();
+    });
+  </script>
+</body>
+</html>

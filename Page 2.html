@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Русь: страна из дерева</title>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --main-bg: #f7e8d9; /* Пергаментный фон */
+      --wood-dark: #5c3a2a; /* Тёмное дерево */
+      --wood-light: #8c6a54; /* Светлое дерево */
+      --text-dark: #3b2c28; /* Тёмный текст */
+      --accent: #a34d1e; /* Тёплый акцент, как угли */
+      --wood-transparent: rgba(92, 58, 42, 0.95);
+      --wood-light-transparent: rgba(140, 106, 84, 0.85);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, var(--main-bg) 0%, #e8d8c8 100%), url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+      background-blend-mode: overlay;
+      background-repeat: repeat;
+      background-size: auto;
+      color: var(--text-dark);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 80%, rgba(163, 77, 30, 0.1) 0%, transparent 70%);
+      animation: fireGlow 10s infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes fireGlow {
+      0% { opacity: 0.1; }
+      100% { opacity: 0.3; }
+    }
+
+    header {
+      background: linear-gradient(180deg, var(--wood-transparent) 0%, rgba(92, 58, 42, 0.9) 100%), url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.6);
+      padding: 5px 0;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .topbar img {
+      height: 50px;
+      margin-right: 20px;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));
+      transition: transform 0.3s ease;
+    }
+
+    .topbar img:hover {
+      transform: rotate(5deg) scale(1.1);
+    }
+
+    .college-name {
+      font-family: 'MedievalSharp', cursive;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    }
+
+    nav {
+      background: var(--wood-light-transparent);
+      padding: 10px 20px;
+      text-align: center;
+      animation: slideOpen 0.5s ease-out;
+    }
+
+    @keyframes slideOpen {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-family: 'MedievalSharp', cursive;
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.9);
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent);
+    }
+
+    main {
+      padding-top: 170px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    h1.hero {
+      font-family: 'MedievalSharp', cursive;
+      font-size: 3.5rem;
+      text-align: center;
+      color: var(--wood-dark);
+      text-shadow: 3px 3px 10px rgba(255,255,255,0.9);
+      margin-bottom: 15px;
+      position: relative;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    h1.hero::before,
+    h1.hero::after {
+      content: 'ꙮ'; /* Древнерусский крест */
+      color: var(--accent);
+      font-size: 1.8rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: pulse 2s infinite alternate;
+    }
+
+    h1.hero::before {
+      left: 15%;
+    }
+
+    h1.hero::after {
+      right: 15%;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: translateY(-50%) scale(1); }
+      100% { transform: translateY(-50%) scale(1.2); }
+    }
+
+    p.subtitle {
+      text-align: center;
+      font-size: 1.4rem;
+      color: var(--wood-dark);
+      font-weight: 600;
+      margin-bottom: 50px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards 0.5s;
+      text-shadow: 1px 1px 6px rgba(255,255,255,0.9);
+    }
+
+    section {
+      margin-bottom: 70px;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      border: 2px solid var(--wood-light);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+    }
+
+    section h2.hero {
+      font-family: 'MedievalSharp', cursive;
+      font-size: 2.2rem;
+      color: var(--wood-dark);
+      text-align: center;
+      margin-bottom: 25px;
+      position: relative;
+      text-shadow: 2px 2px 6px rgba(255,255,255,0.8);
+    }
+
+    section h2.hero::before,
+    section h2.hero::after {
+      content: 'Ꙫ'; /* Древнерусский орнамент */
+      color: var(--accent);
+      font-size: 1.5rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: pulse 2s infinite alternate;
+    }
+
+    section h2.hero::before {
+      left: 10%;
+    }
+
+    section h2.hero::after {
+      right: 10%;
+    }
+
+    iframe,
+    video {
+      display: block;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      border: 3px solid var(--wood-dark);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      background: linear-gradient(135deg, var(--wood-light-transparent) 0%, rgba(140, 106, 84, 0.7) 100%);
+      padding: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    iframe:hover,
+    video:hover {
+      transform: scale(1.02);
+    }
+
+    #tools-widget {
+      background: linear-gradient(135deg, var(--wood-light-transparent) 0%, rgba(140, 106, 84, 0.7) 100%);
+      border-radius: 15px;
+      padding: 25px;
+      color: white;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      border: 3px solid var(--wood-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #tools-widget::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(163, 77, 30, 0.1) 0%, transparent 70%);
+      animation: rotateLight 10s infinite linear;
+      z-index: 0;
+    }
+
+    @keyframes rotateLight {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #tools-widget p {
+      font-family: 'MedievalSharp', cursive;
+      font-size: 1.5rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+      position: relative;
+      z-index: 1;
+    }
+
+    #tools-widget select {
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      margin-top: 15px;
+      border: 2px solid var(--wood-dark);
+      background: linear-gradient(135deg, var(--wood-light-transparent) 0%, rgba(140, 106, 84, 0.7) 100%);
+      color: white;
+      width: 100%;
+      max-width: 300px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    #tools-widget select:hover {
+      transform: scale(1.05);
+    }
+
+    #toolInfo {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+
+    .carousel {
+      width: 100%;
+      height: 400px;
+      perspective: 1200px;
+      overflow: hidden;
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .carousel__stage {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease-out;
+      cursor: grab;
+    }
+
+    .carousel__slide {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 260px;
+      height: 380px;
+      margin: -190px -130px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      background: linear-gradient(135deg, var(--wood-light-transparent) 0%, rgba(140, 106, 84, 0.7) 100%);
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      transition: all 0.5s ease;
+      border: 3px solid var(--wood-dark);
+      overflow: hidden;
+    }
+
+    .carousel__slide:hover {
+      background: linear-gradient(135deg, var(--wood-transparent) 0%, rgba(92, 58, 42, 0.9) 100%);
+      transform: scale(1.1) translateZ(80px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    }
+
+    .carousel__slide img {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      border: 2px solid var(--wood-dark);
+      background: rgba(255, 255, 255, 0.2);
+      padding: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel__slide:hover img {
+      transform: scale(1.1);
+    }
+
+    .carousel__slide h2 {
+      font-family: 'MedievalSharp', cursive;
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+    }
+
+    .carousel__slide p {
+      font-size: 1rem;
+      line-height: 1.4;
+      text-align: center;
+      max-height: 4.8em;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    footer {
+      text-align: center;
+      background: linear-gradient(180deg, var(--wood-transparent) 0%, rgba(92, 58, 42, 0.9) 100%), url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+      color: white;
+      padding: 25px;
+      font-size: 1rem;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+      position: relative;
+    }
+
+    footer::before {
+      content: '©';
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-right: 5px;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding-top: 180px;
+      }
+      h1.hero {
+        font-size: 2.2rem;
+      }
+      h1.hero::before, h1.hero::after {
+        font-size: 1.3rem;
+        left: 5%;
+        right: 5%;
+      }
+      .carousel {
+        height: 300px;
+      }
+      .carousel__slide {
+        width: 180px;
+        height: 260px;
+        margin: -130px -90px;
+      }
+      .carousel__slide img {
+        max-height: 140px;
+      }
+      .carousel__slide h2 {
+        font-size: 1.2rem;
+      }
+      .carousel__slide p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <img src="../png/logo.png" alt="Логотип" />
+      <div class="college-name">ГБПОУ "Южно-Уральский государственный технический колледж"</div>
+    </div>
+     <nav>
+      <a href="../HTML/index.html">Главная</a>
+      <a href="../HTML/Page 2.html">Русь: дерево</a>
+      <a href="../HTML/Page 3.html">Русь: камень</a>
+      <a href="../HTML/Page 4.html">Империя</a>
+      <a href="../HTML/Page 5.html">СССР</a>
+      <a href="../HTML/Page 6.html">РФ</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="hero">Русь: страна из дерева</h1>
+    <p class="subtitle">Начало пути русской архитектуры</p>
+
+    <section>
+      <h2 class="hero">Из чего строим?</h2>
+      <iframe src="../docs/iz-chego-stroim.pdf" height="550px" title="Из чего строим"></iframe>
+    </section>
+
+    <section>
+      <h2 class="hero">Чем строим?</h2>
+      <div id="tools-widget">
+        <p>Выберите инструмент:</p>
+        <select id="toolSelect">
+          <option value="тесло">Тесло</option>
+          <option value="топор">Топор</option>
+          <option value="долото">Долото</option>
+          <option value="пила">Двуручная пила</option>
+        </select>
+        <div id="toolInfo"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hero">Что строим?</h2>
+      <div class="carousel" id="carousel">
+        <div class="carousel__stage" id="carouselStage">
+          <div class="carousel__slide">
+            <img src="../png/derevyannaya-izba.jfif" alt="Изба" />
+            <h2>Изба</h2>
+            <p>Основной жилой дом на Руси – сруб из бревен с резными украшениями.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/cerkov-derevo.jfif" alt="Церковь" />
+            <h2>Деревянная церковь</h2>
+            <p>Бесгвоздевые храмы, символы мастерства и веры.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/krepost-derevo.jfif" alt="Крепость" />
+            <h2>Крепость</h2>
+            <p>Остроги и башни для защиты от врагов.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/ambar-derevo.jpg" alt="Амбар" />
+            <h2>Амбар</h2>
+            <p>Хранилище запасов с поднятой платформой против грызунов.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/kolokolnya-derevo.jpg" alt="Колокольня" />
+            <h2>Колокольня</h2>
+            <p>Высокое сооружение для колоколов, часто украшенное резьбой.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/banya-derevo.jpg" alt="Баня" />
+            <h2>Баня</h2>
+            <p>Традиционная парная, неотъемлемая часть быта.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/sklad-derevo.jpg" alt="Склад" />
+            <h2>Склад</h2>
+            <p>Простое помещение для хранения хозяйственных нужд.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hero">Кто строит?</h2>
+      <p class="subtitle">
+        На Руси зодчие были народными мастерами. Плотники, бондари и тёсальщики передавали знания из поколения в поколение.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="hero">Как строит?</h2>
+      <video controls>
+        <source src="../video/kak-stroili-derevo.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    </section>
+
+    <section>
+      <h2 class="hero">Интерактивный практикум</h2>
+      <iframe src="../practice/index.html" height="550px" title="Практикум"></iframe>
+    </section>
+  </main>
+
+  <footer>
+    Электронный образовательный ресурс профессионально-ориентированного содержания.<br />
+    Автор: Коротыч Ольга Валерьевна, преподаватель истории
+  </footer>
+
+  <script>
+    function adjustMainPadding() {
+      const header = document.querySelector('header');
+      const main = document.querySelector('main');
+      const headerHeight = header.offsetHeight;
+      main.style.paddingTop = `${headerHeight + 20}px`;
+    }
+
+    window.addEventListener('load', adjustMainPadding);
+    window.addEventListener('resize', adjustMainPadding);
+
+    // Звук при скроллинге
+    const audio = new Audio('../audio/forest.mp3');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > lastScroll && Math.abs(currentScroll - lastScroll) > 50) {
+        audio.currentTime = 0;
+        audio.play();
+      }
+      lastScroll = currentScroll;
+    });
+  </script>
+
+  <script>
+    const toolDescriptions = {
+      'тесло': 'Тесло – инструмент для обтесывания брёвен, придающий им нужную форму.',
+      'топор': 'Топор – основной инструмент плотника для строительства и заготовки.',
+      'долото': 'Долото – для точной обработки дерева и создания соединений.',
+      'пила': 'Двуручная пила – для распилки брёвен на нужные части.'
+    };
+    const select = document.getElementById('toolSelect');
+    const info = document.getElementById('toolInfo');
+    select.addEventListener('change', () => {
+      info.textContent = toolDescriptions[select.value];
+    });
+    info.textContent = toolDescriptions[select.value];
+  </script>
+
+  <script>
+    const carousel = document.getElementById('carousel');
+    const stage = document.getElementById('carouselStage');
+    const slides = stage.children;
+    const radius = 400;
+    const autoRotateSpeed = 0.03;
+    let autoRotate = true;
+    let rotationY = 0;
+    let dragging = false;
+    let lastX = 0;
+    let velocity = 0;
+    const slidesCount = slides.length;
+    const theta = 360 / slidesCount;
+
+    function setupCarousel() {
+      for (let i = 0; i < slidesCount; i++) {
+        const slide = slides[i];
+        const angle = theta * i;
+        slide.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+      }
+    }
+
+    function updateCarousel() {
+      stage.style.transform = `translateZ(-${radius}px) rotateY(${rotationY}deg)`;
+    }
+
+    setupCarousel();
+    updateCarousel();
+
+    function animate() {
+      if (!dragging && autoRotate) {
+        rotationY += autoRotateSpeed;
+      } else {
+        rotationY += velocity;
+        velocity *= 0.95;
+        if (Math.abs(velocity) < 0.001) velocity = 0;
+      }
+      updateCarousel();
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    carousel.addEventListener('mousedown', (e) => {
+      dragging = true;
+      lastX = e.clientX;
+      velocity = 0;
+      autoRotate = false;
+    });
+
+    window.addEventListener('mouseup', () => {
+      dragging = false;
+      autoRotate = true;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!dragging) return;
+      const deltaX = e.clientX - lastX;
+      rotationY += deltaX * 0.3;
+      velocity = deltaX * 0.1;
+      lastX = e.clientX;
+      updateCarousel();
+    });
+
+    carousel.addEventListener('touchstart', (e) => {
+      dragging = true;
+      lastX = e.touches[0].clientX;
+      velocity = 0;
+      autoRotate = false;
+    });
+
+    window.addEventListener('touchend', () => {
+      dragging = false;
+      autoRotate = true;
+    });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!dragging) return;
+      const deltaX = e.touches[0].clientX - lastX;
+      rotationY += deltaX * 0.3;
+      velocity = deltaX * 0.1;
+      lastX = e.touches[0].clientX;
+      updateCarousel();
+    });
+  </script>
+</body>
+</html>
