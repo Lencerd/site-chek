@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Российская Империя</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../CSS/page 4.css">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <img src="../png/Лого/logo.png" alt="Логотип" />
+      <div class="college-name">ГБПОУ "Южно-Уральский государственный технический колледж"</div>
+    </div>
+    <nav>
+      <a href="../HTML/index.html">Главная</a>
+      <a href="../HTML/Page 2.html">Русь: дерево</a>
+      <a href="../HTML/Page 3.html">Русь-Россия: камень</a>
+      <a href="../HTML/Page 4.html">Империя</a>
+      <a href="../HTML/Page 5.html">СССР</a>
+      <a href="../HTML/Page 6.html">РФ</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="hero">Российская Империя</h1>
+    <p class="subtitle">Роскошь дворцов и величие классицизма</p>
+
+    <section>
+      <h2 class="hero">Из чего строим?</h2>
+      <iframe src="../Документы в формате pdf/Империя.pdf" height="450px" title="Из чего строим"></iframe>
+    </section>
+
+    <section>
+      <h2 class="hero">Чем строим?</h2>
+      <div id="tools-widget">
+        <p>Выберите инструмент:</p>
+        <select id="toolSelect" aria-label="Выберите инструмент">
+          <option value="мастерок">Штукатурный мастерок</option>
+          <option value="кисть">Кисть для позолоты</option>
+          <option value="уровень">Уровень</option>
+          <option value="молоток">Молоток резчика</option>
+          <option value="линейка">Линейка</option>
+          <option value="резец">Резец по камню</option>
+          <option value="шпатель">Шпатель для декора</option>
+        </select>
+        <div id="toolInfo"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hero">Что строим?</h2>
+      <div class="carousel" id="carousel">
+        <div class="carousel__stage" id="carouselStage">
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 4 страницы/Что строим/Зимний дворец.jpeg" alt="Зимний дворец" />
+            <h2>Зимний дворец</h2>
+            <p>Санкт-Петербург, 1754–1762 гг. Барочный шедевр В.В. Растрелли, резиденция императоров.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 4 страницы/Что строим/Казанский собор.jpg" alt="Казанский собор" />
+            <h2>Казанский собор</h2>
+            <p>Санкт-Петербург, 1801–1811 гг. Классицизм А.Н. Воронихина с величественной колоннадой.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 4 страницы/Что строим/Большой театр.jpg" alt="Большой театр" />
+            <h2>Большой театр</h2>
+            <p>Москва, 1821–1825 гг. Культурный центр в стиле классицизма от О.И. Бове.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 4 страницы/Что строим/Исаакиевский собор.jpg" alt="Исаакиевский собор" />
+            <h2>Исаакиевский собор</h2>
+            <p>Санкт-Петербург, 1818–1858 гг. Монументальный храм О. Монферрана с золотым куполом.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 4 страницы/Что строим/Михайловский замок.jpg" alt="Михайловский замок" />
+            <h2>Михайловский замок</h2>
+            <p>Санкт-Петербург, 1797–1801 гг. Романтический классицизм Баженова и Бренны.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hero">Кто строит?</h2>
+      <p class="subtitle">
+        Архитекторы и мастера Российской Империи, вдохновлённые классицизмом и европейским шиком.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="hero">Как строит?</h2>
+      <video controls>
+        <source src="../Видео/Империя.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    </section>
+
+    <section>
+      <h2 class="hero">Интерактивный практикум</h2>
+      <iframe src="../practice/empire.html" height="550px" title="Практикум"></iframe>
+    </section>
+  </main>
+
+  <footer>
+    Электронный образовательный ресурс профессионально-ориентированного содержания.<br />
+    Автор: Коротыч Ольга Валерьевна, преподаватель истории
+  </footer>
+
+  <script src = "../Scripts/Выборка/page 4.js"></script>
+  <script src = "../Scripts/Другое/Карусель.js"></script>
+  <script src = "../Scripts/Другое/Адаптация.js"></script>
+</body>
+</html>

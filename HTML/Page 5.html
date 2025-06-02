@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Архитектура СССР: монументальные здания и индустриализация" />
+  <meta name="keywords" content="СССР, советская архитектура, индустриализация" />
+  <title>СССР</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="../CSS/page 5.css">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <img src="../png/Лого/logo.png" alt="Логотип" />
+      <div class="college-name">ГБПОУ "Южно-Уральский государственный технический колледж"</div>
+    </div>
+    <nav>
+      <a href="../HTML/index.html">Главная</a>
+      <a href="../HTML/Page 2.html">Русь: дерево</a>
+      <a href="../HTML/Page 3.html">Русь-Россия: камень</a>
+      <a href="../HTML/Page 4.html">Империя</a>
+      <a href="../HTML/Page 5.html">СССР</a>
+      <a href="../HTML/Page 6.html">РФ</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="hero">СССР</h1>
+    <p class="subtitle">Монументальность и индустриализация</p>
+
+    <section>
+      <h2 class="hero">Из чего строим?</h2>
+      <iframe src="../Документы в формате pdf/СССР.pdf" height="450px" title="Из чего строим"></iframe>
+    </section>
+
+    <section>
+      <h2 class="hero">Чем строим?</h2>
+      <div id="tools-widget">
+        <p>Выберите инструмент:</p>
+        <select id="toolSelect" aria-label="Выберите инструмент">
+          <option value="бетономешалка">Бетономешалка</option>
+          <option value="краска">Краска для фресок</option>
+          <option value="арматура">Арматура</option>
+          <option value="кран">Башенный кран</option>
+        </select>
+        <div id="toolInfo"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hero">Что строим?</h2>
+      <div class="carousel" id="carousel">
+        <div class="carousel__stage" id="carouselStage">
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 5 страницы/Что строим/Дворец культуры.jpg" alt="Дворец культуры" />
+            <h2>Дворец культуры</h2>
+            <p>Монументальные центры для рабочих с просторными залами и декоративными элементами, символизирующие советскую культуру.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 5 страницы/Что строим/Завод.jpg" alt="Завод" />
+            <h2>Завод</h2>
+            <p>Промышленные комплексы, обеспечивавшие экономический рост СССР, с мощными железобетонными конструкциями.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 5 страницы/Что строим/Метро.jpg" alt="Метро" />
+            <h2>Метро</h2>
+            <p>Подземные станции с мозаиками, люстрами и мрамором, отражавшие величие советской архитектуры.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 5 страницы/Что строим/Жилые квартиры.jpg" alt="Жилые кварталы" />
+            <h2>Жилые кварталы</h2>
+            <p>Типовые панельные дома, обеспечивавшие жильем миллионы советских граждан в эпоху индустриализации.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hero">Кто строит?</h2>
+      <p class="subtitle">
+        Инженеры и рабочие СССР, возводившие символы индустриального подъёма и социалистической идеологии.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="hero">Как строит?</h2>
+      <video controls>
+        <source src="../Видео/СССР.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    </section>
+
+    <section>
+      <h2 class="hero">Интерактивный практикум</h2>
+      <iframe src="../practice/ussr.html" height="450px" title="Практикум"></iframe>
+    </section>
+  </main>
+
+  <footer>
+    Электронный образовательный ресурс профессионально-ориентированного содержания.<br />
+    Автор: Коротыч Ольга Валерьевна, преподаватель истории
+  </footer>
+
+  <script src = "../Scripts/Выборка/page 5.js"></script>
+  <script src = "../Scripts/Другое/Карусель.js"></script>
+  <script src = "../Scripts/Другое/Адаптация.js"></script>
+</body>
+</html>

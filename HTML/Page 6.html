@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Архитектура Российской Федерации: современные технологии и культурное наследие" />
+  <meta name="keywords" content="Российская Федерация, современная архитектура, культурное наследие" />
+  <title>Российская Федерация</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../CSS/page 6.css">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <img src="../png/Лого/logo.png" alt="Логотип" />
+      <div class="college-name">ГБПОУ "Южно-Уральский государственный технический колледж"</div>
+    </div>
+    <nav>
+      <a href="../HTML/index.html">Главная</a>
+      <a href="../HTML/Page 2.html">Русь: дерево</a>
+      <a href="../HTML/Page 3.html">Русь-Россия: камень</a>
+      <a href="../HTML/Page 4.html">Империя</a>
+      <a href="../HTML/Page 5.html">СССР</a>
+      <a href="../HTML/Page 6.html">РФ</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="hero">Российская Федерация</h1>
+    <p class="subtitle">Современность и культурное наследие</p>
+
+    <section>
+      <h2 class="hero">Из чего строим?</h2>
+      <iframe src="../Документы в формате pdf/РФ.pdf" height="450px" title="Из чего строим"></iframe>
+    </section>
+
+    <section>
+      <h2 class="hero">Чем строим?</h2>
+      <div id="tools-widget">
+        <p>Выберите инструмент:</p>
+        <select id="toolSelect" aria-label="Выберите инструмент">
+          <option value="бетон">Бетоносмеситель</option>
+          <option value="лазер">Лазерный уровень</option>
+          <option value="краска">Краска для фасадов</option>
+          <option value="дрель">Электродрель</option>
+        </select>
+        <div id="toolInfo"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hero">Что строим?</h2>
+      <div class="carousel" id="carousel">
+        <div class="carousel__stage" id="carouselStage">
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 6 страницы/Что строим/Стадион.jpg" alt="Стадион" />
+            <h2>Стадион</h2>
+            <p>Современные спортивные арены для международных соревнований и массовых мероприятий.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 6 страницы/Что строим/Офис.jpg" alt="Офис" />
+            <h2>Офис</h2>
+            <p>Бизнес-центры с инновационным дизайном и экологическими технологиями.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 6 страницы/Что строим/Музей.jpg" alt="Музей" />
+            <h2>Музей</h2>
+            <p>Культурные центры, сочетающие современные технологии и историческое наследие.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 6 страницы/Что строим/Театр.jpg" alt="Театр" />
+            <h2>Театр</h2>
+            <p>Современные сценические площадки для театрального искусства и культурных событий.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hero">Кто строит?</h2>
+      <p class="subtitle">
+        Архитекторы и строители современной России, сохраняющие традиции и внедряющие инновации.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="hero">Как строит?</h2>
+      <video controls>
+        <source src="../Видео/РФ.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    </section>
+
+    <section>
+      <h2 class="hero">Интерактивный практикум</h2>
+      <iframe src="../practice/rf.html" height="450px" title="Практикум"></iframe>
+    </section>
+  </main>
+
+  <footer>
+    Электронный образовательный ресурс профессионально-ориентированного содержания.<br />
+    Автор: Коротыч Ольга Валерьевна, преподаватель истории
+  </footer>
+
+  <script src = "../Scripts/Выборка/page 6.js"></script>
+  <script src = "../Scripts/Другое/Карусель.js"></script>
+  <script src = "../Scripts/Другое/Адаптация.js"></script>
+  </body>
+</html>
