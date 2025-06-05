@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Архитектура Российской Федерации: современные технологии и культурное наследие" />
+  <meta name="keywords" content="Российская Федерация, современная архитектура, культурное наследие" />
+  <title>Российская Федерация</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../CSS/page 6.css">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <img src="../png/Лого/logo.png" alt="Логотип" />
+      <div class="college-name">ГБПОУ "Южно-Уральский государственный технический колледж"</div>
+    </div>
+    <nav>
+      <a href="../HTML/index.html">Главная</a>
+      <a href="../HTML/Page 2.html">Русь: дерево</a>
+      <a href="../HTML/Page 3.html">Русь-Россия: камень</a>
+      <a href="../HTML/Page 4.html">Империя</a>
+      <a href="../HTML/Page 5.html">СССР</a>
+      <a href="../HTML/Page 6.html">РФ</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="hero">Российская Федерация</h1>
+    <p class="subtitle">Современность и культурное наследие</p>
+
+    <section>
+      <h2 class="hero">Из чего строим?</h2>
+      <iframe src="../Документы в формате pdf/РФ.pdf" height="450px" title="Из чего строим"></iframe>
+    </section>
+
+    <section>
+      <h2 class="hero">Чем строим?</h2>
+      <div id="tools-widget">
+        <p>Выберите инструмент:</p>
+        <select id="toolSelect" aria-label="Выберите инструмент">
+          <option value="бетон">Бетоносмеситель</option>
+          <option value="лазер">Лазерный уровень</option>
+          <option value="краска">Краска для фасадов</option>
+          <option value="дрель">Электродрель</option>
+        </select>
+        <div id="toolInfo"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hero">Что строим?</h2>
+      <div class="carousel" id="carousel">
+        <div class="carousel__stage" id="carouselStage">
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 6 страницы/Что строим/Стадион.jpg" alt="Стадион" />
+            <h2>Стадион</h2>
+            <p>Современные спортивные арены для международных соревнований и массовых мероприятий.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 6 страницы/Что строим/Офис.jpg" alt="Офис" />
+            <h2>Офис</h2>
+            <p>Бизнес-центры с инновационным дизайном и экологическими технологиями.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 6 страницы/Что строим/Музей.jpg" alt="Музей" />
+            <h2>Музей</h2>
+            <p>Культурные центры, сочетающие современные технологии и историческое наследие.</p>
+          </div>
+          <div class="carousel__slide">
+            <img src="../png/Картинки для 6 страницы/Что строим/Театр.jpg" alt="Театр" />
+            <h2>Театр</h2>
+            <p>Современные сценические площадки для театрального искусства и культурных событий.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hero">Кто строит?</h2>
+      <p class="subtitle">
+        Современные архитекторы, инженеры и строители Российской Федерации сочетают передовые технологии с уважением к культурному наследию. Архитекторы разрабатывают проекты, интегрирующие экологические стандарты и инновационные материалы, такие как стекло, сталь и композиты. Инженеры применяют цифровые технологии, включая BIM (информационное моделирование зданий), для оптимизации строительства. Рабочие бригады используют современное оборудование, такое как лазерные уровни и автоматизированные системы, для обеспечения точности и скорости. Строители работают в тесном сотрудничестве с дизайнерами и экологами, создавая здания, которые отражают идентичность России и отвечают требованиям устойчивого развития. Их труд воплощает баланс между модернизацией и сохранением исторических традиций.
+      </p>
+      <div class="carousel" id="buildersCarousel">
+        <div class="carousel__stage" id="buildersCarouselStage">
+          <div class="carousel__slide" aria-label="Архитектор-дизайнер">
+            <img src="../png/Картинки для 6 страницы/Кто строит/Архитектор.jpg" alt="Архитектор-дизайнер" />
+            <h2>Архитектор-дизайнер</h2>
+            <p>Создает проекты современных зданий, сочетая инновационный дизайн и экологические технологии.</p>
+          </div>
+          <div class="carousel__slide" aria-label="Инженер BIM">
+            <img src="../png/Картинки для 6 страницы/Кто строит/Инженер.jpg" alt="Инженер BIM" />
+            <h2>Инженер BIM</h2>
+            <p>Использует информационное моделирование зданий для проектирования и управления строительными процессами.</p>
+          </div>
+          <div class="carousel__slide" aria-label="Рабочий-монтажник">
+            <img src="../png/Картинки для 6 страницы/Кто строит/Монтажник.jpg" alt="Рабочий-монтажник" />
+            <h2>Рабочий-монтажник</h2>
+            <p>Устанавливает конструкции из стекла и стали, работая с современным оборудованием.</p>
+          </div>
+          <div class="carousel__slide" aria-label="Эколог-консультант">
+            <img src="../png/Картинки для 6 страницы/Кто строит/Эколог.png" alt="Эколог-консультант" />
+            <h2>Эколог-консультант</h2>
+            <p>Обеспечивает соответствие строительства стандартам устойчивого развития и энергоэффективности.</p>
+          </div>
+          <div class="carousel__slide" aria-label="Оператор дрона">
+            <img src="../png/Картинки для 6 страницы/Кто строит/Оператор.jpg" alt="Оператор дрона" />
+            <h2>Оператор дрона</h2>
+            <p>Использует дроны для мониторинга стройплощадок и контроля качества работ.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="hero">Как строит?</h2>
+      <iframe src="https://vkvideo.ru/video_ext.php?oid=-230761719&id=456239020&hd=2&autoplay=1" width="853" height="480" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section id="interactive-practicum">
+  <h2 class="hero">Интерактивный практикум</h2>
+   <div id="quizContainer">
+  <div id="questionBox">
+    <p id="questionText"></p>
+    <div id="answers"></div>
+    <button id="nextBtn" onclick="nextQuestion()">Далее</button>
+  </div>
+  <div id="quizResult" style="display:none; margin-top: 15px;"></div>
+</div>
+    </section>
+  </main>
+
+        <section>
+      <h2 class="hero">Дополнительные материалы</h2>
+      <p class="subtitle">
+        <a href="#" style="color: var(--accent); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 1.2rem; transition: color 0.3s ease, text-shadow 0.3s ease;" onmouseover="this.style.color='#fff'; this.style.textShadow='0 0 6px var(--accent)';" onmouseout="this.style.color='var(--accent)'; this.style.textShadow='none';">Перейти к дополнительным материалам</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Электронный образовательный ресурс профессионально-ориентированного содержания.<br />
+    Автор: Коротыч Ольга Валерьевна, преподаватель истории
+  </footer>
+
+  <script src="../Scripts/Выборка/page 6.js"></script>
+  <script src="../Scripts/Другое/Карусель.js"></script>
+  <script src="../Scripts/Другое/Адаптация.js"></script>
+
+<script>
+const quizData = [
+  {
+    question: "1. Что характерно для архитектуры современной России?",
+    answers: [
+      { text: "Полный отказ от традиций", correct: false },
+      { text: "Слияние инноваций и культурного наследия", correct: true },
+      { text: "Только деревянные постройки", correct: false }
+    ]
+  },
+  {
+    question: "2. Какие технологии часто используются в современном строительстве?",
+    answers: [
+      { text: "Глиняные кирпичи и дровяные печи", correct: false },
+      { text: "Энергоэффективные материалы и умные системы", correct: true },
+      { text: "Только ручной труд", correct: false }
+    ]
+  },
+  {
+    question: "3. Для чего строятся современные стадионы в России?",
+    answers: [
+      { text: "Для хранения зерна", correct: false },
+      { text: "Для международных спортивных и культурных мероприятий", correct: true },
+      { text: "Для административных офисов", correct: false }
+    ]
+  },
+  {
+    question: "4. Чем отличаются современные музеи в РФ?",
+    answers: [
+      { text: "Минимальным техническим оснащением", correct: false },
+      { text: "Совмещением истории с цифровыми технологиями", correct: true },
+      { text: "Только уличными экспозициями", correct: false }
+    ]
+  },
+  {
+    question: "5. Какой инструмент наиболее современный среди перечисленных?",
+    answers: [
+      { text: "Пила-ножовка", correct: false },
+      { text: "Лазерный уровень", correct: true },
+      { text: "Молоток", correct: false }
+    ]
+  }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function showQuestion(index) {
+  const question = quizData[index];
+  const questionText = document.getElementById("questionText");
+  const answersContainer = document.getElementById("answers");
+  questionText.textContent = question.question;
+  answersContainer.innerHTML = "";
+
+  question.answers.forEach((answer) => {
+    const label = document.createElement("label");
+    label.style.display = "block";
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.name = "answer";
+    input.value = answer.correct ? "1" : "0";
+    label.appendChild(input);
+    label.append(" " + answer.text);
+    answersContainer.appendChild(label);
+  });
+}
+
+function nextQuestion() {
+  const selected = document.querySelector('input[name="answer"]:checked');
+  if (!selected) {
+    alert("Выберите ответ перед продолжением.");
+    return;
+  }
+  if (selected.value === "1") score++;
+
+  currentQuestion++;
+  if (currentQuestion < quizData.length) {
+    showQuestion(currentQuestion);
+  } else {
+    finishQuiz();
+  }
+}
+
+function finishQuiz() {
+  document.getElementById("questionBox").style.display = "none";
+  const resultBox = document.getElementById("quizResult");
+  resultBox.style.display = "block";
+  let message = `Ваш результат: <strong>${score}</strong> из ${quizData.length}. `;
+  if (score === quizData.length) {
+    message += "Прекрасно! Вы ориентируетесь в современной архитектуре.";
+  } else if (score >= 3) {
+    message += "Хорошо, но есть к чему стремиться.";
+  } else {
+    message += "Повторите материал и попробуйте снова.";
+  }
+  resultBox.innerHTML = `<p>${message}</p>`;
+}
+
+showQuestion(currentQuestion);
+</script>
+
+</body>
+</html>
