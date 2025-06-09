@@ -1,0 +1,766 @@
+:root {
+      --main-bg: #e8e8e8;
+      --stone-dark: #3a4449;
+      --stone-light: #c0c8c9;
+      --text-dark: #2a2e2f;
+      --accent: #e0bc4f;
+      --stone-transparent: rgba(58, 68, 73, 0.95);
+      --stone-light-transparent: rgba(192, 200, 201, 0.9);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, var(--main-bg) 0%, #d8d8d8 100%), url('https://www.transparenttextures.com/patterns/stone-1.png');
+      background-blend-mode: overlay;
+      background-repeat: repeat;
+      background-size: 300px;
+      color: var(--text-dark);
+      min-height: 100vh;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 25% 25%, rgba(224, 188, 79, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+      opacity: 0.1;
+      animation: glow 10s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { opacity: 0.1; }
+      100% { opacity: 0.2; }
+    }
+
+    header {
+      background: linear-gradient(180deg, var(--stone-transparent) 0%, rgba(58, 68, 73, 0.95) 100%), url('https://www.transparenttextures.com/patterns/stone-1.png');
+      background-blend-mode: overlay;
+      background-size: 300px;
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      border-bottom: 3px solid var(--accent);
+      padding: 5px 0;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .topbar img {
+      height: 50px;
+      margin-right: 20px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+      transition: transform 0.3s ease;
+    }
+
+    .topbar img:hover {
+      transform: rotate(5deg) scale(1.1);
+    }
+
+    .college-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    nav {
+      background: linear-gradient(180deg, var(--stone-light-transparent) 0%, rgba(192, 200, 201, 0.85) 100%), url('https://www.transparenttextures.com/patterns/stone-1.png');
+      background-size: 300px;
+      padding: 10px 20px;
+      text-align: center;
+      animation: slideIn 0.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      transition: color 0.3s ease, transform 0.3s ease;
+      position: relative;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      transform: scale(1.1);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      background: var(--accent);
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 90%;
+    }
+
+    main {
+      padding-top: 120px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    h1.hero {
+      font-family: 'Cinzel', serif;
+      font-size: 4rem;
+      text-align: center;
+      color: var(--stone-dark);
+      margin-bottom: 20px;
+      position: relative;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    h1.hero::before,
+    h1.hero::after {
+      content: '✠';
+      color: var(--accent);
+      font-size: 2rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: pulse 2s infinite alternate;
+    }
+
+    h1.hero::before {
+      left: 15%;
+    }
+
+    h1.hero::after {
+      right: 15%;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: translateY(-50%) scale(1); }
+      100% { transform: translateY(-50%) scale(1.1); }
+    }
+
+    p.subtitle {
+      text-align: center;
+      font-size: 1.4rem;
+      color: var(--stone-dark);
+      font-weight: 400;
+      margin-bottom: 50px;
+      font-style: italic;
+      opacity: 0;
+      animation: fadeInUp 1s forwards 0.5s;
+      text-shadow: 1px 1px 4px rgba(255,255,255,0.5);
+    }
+
+    section {
+      margin-bottom: 70px;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      border: 2px solid var(--stone-light);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+    }
+
+    section h2.hero {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      color: var(--stone-dark);
+      text-align: center;
+      margin-bottom: 25px;
+      position: relative;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    }
+
+    section h2.hero::before,
+    section h2.hero::after {
+      content: '⟟';
+      color: var(--accent);
+      font-size: 1.5rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: pulse 2s infinite alternate;
+    }
+
+    section h2.hero::before {
+      left: 8%;
+    }
+
+    section h2.hero::after {
+      right: 8%;
+    }
+
+    iframe,
+    video {
+      display: block;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      border: 3px solid var(--stone-dark);
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      background: linear-gradient(135deg, var(--stone-light-transparent) 0%, rgba(192, 200, 201, 0.9) 100%), url('https://www.transparenttextures.com/patterns/stone-1.png');
+      background-size: 300px;
+      padding: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    iframe:hover,
+    video:hover {
+      transform: scale(1.02);
+    }
+
+    #tools-widget {
+      background: linear-gradient(135deg, var(--stone-light-transparent) 0%, rgba(192, 200, 201, 0.9) 100%), url('https://www.transparenttextures.com/patterns/stone-1.png');
+      background-size: 300px;
+      border-radius: 15px;
+      padding: 30px;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      border: 3px solid var(--stone-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #tools-widget::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(224, 188, 79, 0.08) 0%, transparent 70%);
+      animation: rotateLight 10s infinite linear;
+      z-index: 0;
+    }
+
+    @keyframes rotateLight {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #tools-widget p {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 1;
+    }
+
+    #tools-widget select {
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      border: 2px solid var(--stone-dark);
+      background: linear-gradient(135deg, rgba(58, 68, 73, 0.8) 0%, rgba(45, 55, 60, 0.8) 100%), url('https://www.transparenttextures.com/patterns/stone-1.png');
+      background-size: 300px;
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+      width: 100%;
+      max-width: 350px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    #tools-widget select:hover {
+      transform: scale(1.05);
+      border-color: var(--accent);
+    }
+
+    #toolInfo {
+      margin-top: 25px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+      text-shadow: 1px 1px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    #toolInfo img {
+      width: 200px; /* Фиксированная ширина */
+      height: 200px; /* Фиксированная высота */
+      object-fit: contain; /* Сохранение пропорций */
+      border-radius: 8px;
+      border: 2px solid var(--stone-dark);
+      background: rgba(255, 255, 255, 0);
+      padding: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    #toolInfo img:hover {
+      transform: scale(1.1);
+    }
+
+    .carousel {
+      width: 100%;
+      height: 450px;
+      perspective: 1200px;
+      overflow: hidden;
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .carousel__stage {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease-out;
+      cursor: grab;
+    }
+
+    .carousel__slide {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 280px;
+      height: 400px;
+      margin: -200px -140px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      background: linear-gradient(135deg, var(--stone-light-transparent) 0%, rgba(192, 200, 201, 0.9) 100%), url('https://www.transparenttextures.com/patterns/stone-1.png');
+      background-size: 300px;
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 25px;
+      transition: all 0.4s ease;
+      border: 3px solid var(--stone-dark);
+      overflow: hidden;
+    }
+
+    .carousel__slide:hover {
+      background: linear-gradient(135deg, var(--stone-transparent) 0%, rgba(58, 68, 73, 0.95) 100%), url('https://www.transparenttextures.com/patterns/stone-1.png');
+      background-size: 300px;
+      transform: scale(1.1) translateZ(80px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .carousel__slide img {
+      max-width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 2px solid var(--stone-dark);
+      background: rgba(255, 255, 255, 0.15);
+      padding: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel__slide:hover img {
+      transform: scale(1.1);
+    }
+
+    .carousel__slide h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--stone-dark);
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+
+    .carousel__slide p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      text-align: center;
+      font-style: italic;
+      color: var(--text-dark);
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+      max-height: 5.6em;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+
+    footer {
+      text-align: center;
+      background: linear-gradient(180deg, var(--stone-transparent) 0%, rgba(58, 68, 73, 0.95) 100%), url('https://www.transparenttextures.com/patterns/stone-1.png');
+      background-size: 300px;
+      color: white;
+      padding: 25px;
+      font-size: 1rem;
+      border-top: 3px solid var(--accent);
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+      font-family: 'Cinzel', serif;
+      position: relative;
+    }
+
+    footer::before {
+      content: '©';
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-right: 5px;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding-top: 180px;
+      }
+      h1.hero {
+        font-size: 2.8rem;
+      }
+      h1.hero::before, h1.hero::after {
+        font-size: 1.5rem;
+        left: 5%;
+        right: 5%;
+      }
+      section h2.hero {
+        font-size: 2rem;
+      }
+      section h2.hero::before, section h2.hero::after {
+        left: 2%;
+        right: 2%;
+      }
+      .topbar {
+        flex-direction: column;
+        text-align: center;
+      }
+      .topbar img {
+        margin-bottom: 15px;
+      }
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+      .carousel {
+        height: 350px;
+      }
+      .carousel__slide {
+        width: 220px;
+        height: 320px;
+        margin: -160px -110px;
+      }
+      .carousel__slide img {
+        max-height: 160px;
+      }
+      .carousel__slide h2 {
+        font-size: 1.4rem;
+      }
+      .carousel__slide p {
+        font-size: 0.9rem;
+      }
+      #toolInfo img {
+        width: 80px; /* Фиксированная ширина на мобильных */
+        height: 80px; /* Фиксированная высота на мобильных */
+      }
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding-top: 200px;
+      }
+      h1.hero {
+        font-size: 2.2rem;
+      }
+      section h2.hero {
+        font-size: 1.7rem;
+      }
+      .carousel {
+        height: 300px;
+      }
+      .carousel__slide {
+        width: 180px;
+        height: 260px;
+        margin: -130px -90px;
+      }
+      .carousel__slide img {
+        max-height: 130px;
+      }
+    }
+
+#quizContainer {
+  background: linear-gradient(135deg, var(--wood-light-transparent) 0%, rgba(160, 122, 99, 0.9) 100%);
+  background-size: 300px;
+  padding: 25px;
+  border: 3px solid var(--wood-dark);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(1, 2, 3, 4);
+  color: black;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+
+#questionBox p,
+#quizResult p {
+  font-family: 'black', cursive;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+#answers label {
+  display: block;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+#nextBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: var(--accent);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#nextBtn:hover {
+  background-color: #8e3f1f;
+  transform: scale(1.05);
+}
+
+/* Стили для секции "История профессий" */
+#history-of-professions {
+  padding: 3rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#history-of-professions::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 70% 30%, rgba(224, 188, 79, 0.08) 0%, transparent 50%);
+  z-index: -1;
+}
+
+.section-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--stone-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(224, 188, 79, 0.3);
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.text-box {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(58, 68, 73, 0.1);
+  border: 1px solid rgba(224, 188, 79, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.text-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(58, 68, 73, 0.15);
+}
+
+.text-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(224, 188, 79, 0.03) 0%, transparent 100%);
+  z-index: 0;
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--stone-dark);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.action-box {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, rgba(224, 188, 79, 0.1) 0%, rgba(224, 188, 79, 0.2) 100%);
+  border: 2px solid var(--accent);
+  border-radius: 50px;
+  color: var(--stone-dark);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.action-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(224, 188, 79, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.action-link:hover {
+  background: linear-gradient(135deg, rgba(224, 188, 79, 0.2) 0%, rgba(224, 188, 79, 0.3) 100%);
+  box-shadow: 0 4px 15px rgba(224, 188, 79, 0.3);
+  transform: translateY(-2px);
+}
+
+.action-link:hover::before {
+  left: 100%;
+}
+
+.link-text {
+  position: relative;
+  z-index: 1;
+}
+
+.link-icon {
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+}
+
+.action-link:hover .link-icon {
+  transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .text-box {
+    padding: 1.8rem;
+  }
+  
+  .intro-text {
+    font-size: 1.1rem;
+  }
+  
+  .action-link {
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .text-box {
+    padding: 1.5rem 1.2rem;
+  }
+  
+  .intro-text {
+    font-size: 1rem;
+  }
+  
+  .action-link {
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+  }
+}

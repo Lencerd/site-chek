@@ -1,0 +1,788 @@
+ :root {
+      --main-bg: #f8f2e4; /* Светлее кремовый фон */
+      --empire-dark: #5a2a2a; /* Мягче бордовый */
+      --empire-light: #f0d2a0; /* Светлее золотистый */
+      --text-dark: #332622; /* Мягче темный текст */
+      --accent: #e8b923; /* Светлее позолота */
+      --empire-transparent: rgba(90, 42, 42, 0.85); /* Светлее прозрачный бордовый */
+      --empire-light-transparent: rgba(240, 210, 160, 0.75); /* Светлее прозрачный золотистый */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f8f2e4 0%, #f0e0c0 100%), url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png');
+      background-blend-mode: overlay;
+      background-repeat: repeat;
+      background-size: auto;
+      color: var(--text-dark);
+      min-height: 100vh;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 75% 25%, rgba(232, 185, 35, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      animation: glow 10s infinite alternate;
+      opacity: 0.2;
+    }
+
+    @keyframes glow {
+      0% { opacity: 0.08; }
+      100% { opacity: 0.2; }
+    }
+
+    header {
+      background: linear-gradient(180deg, var(--empire-transparent) 0%, rgba(90, 42, 42, 0.8) 100%), url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png');
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border-bottom: 3px solid var(--accent);
+      padding: 5px 0;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .topbar img {
+      height: 50px;
+      margin-right: 20px;
+      filter: drop-shadow(0 3px 5px rgba(0,0,0,0.3));
+      transition: transform 0.3s ease;
+    }
+
+    .topbar img:hover {
+      transform: rotate(5deg) scale(1.1);
+    }
+
+    .college-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+    }
+
+    nav {
+      background: linear-gradient(180deg, var(--empire-light-transparent) 0%, rgba(240, 210, 160, 0.7) 100%);
+      padding: 10px 20px;
+      text-align: center;
+      animation: slideIn 0.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      transition: color 0.3s ease, transform 0.3s ease;
+      position: relative;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      transform: scale(1.1);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      background: var(--accent);
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 90%;
+    }
+
+    main {
+      padding-top: 120px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    h1.hero {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      text-align: center;
+      color: var(--empire-dark);
+      margin-bottom: 20px;
+      position: relative;
+      text-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    h1.hero::before,
+    h1.hero::after {
+      content: '❖';
+      color: var(--accent);
+      font-size: 2rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: pulse 2s infinite alternate;
+    }
+
+    h1.hero::before {
+      left: 15%;
+    }
+
+    h1.hero::after {
+      right: 15%;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: translateY(-50%) scale(1); }
+      100% { transform: translateY(-50%) scale(1.1); }
+    }
+
+    p.subtitle {
+      text-align: center;
+      font-size: 1.4rem;
+      color: var(--empire-dark);
+      font-weight: 400;
+      margin-bottom: 50px;
+      font-style: italic;
+      opacity: 0;
+      animation: fadeInUp 1s forwards 0.5s;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+    }
+
+    section {
+      margin-bottom: 70px;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      border: 2px solid var(--empire-light);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+    }
+
+    section h2.hero {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--empire-dark);
+      text-align: center;
+      margin-bottom: 25px;
+      position: relative;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+    }
+
+    section h2.hero::before,
+    section h2.hero::after {
+      content: '✧';
+      color: var(--accent);
+      font-size: 1.5rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: pulse 2s infinite alternate;
+    }
+
+    section h2.hero::before {
+      left: 8%;
+    }
+
+    section h2.hero::after {
+      right: 8%;
+    }
+
+    iframe,
+    video {
+      display: block;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      border: 3px solid var(--empire-dark);
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      background: linear-gradient(135deg, var(--empire-light-transparent) 0%, rgba(240, 210, 160, 0.65) 100%);
+      padding: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    iframe:hover,
+    video:hover {
+      transform: scale(1.02);
+    }
+
+    #tools-widget {
+      background: linear-gradient(135deg, var(--empire-light-transparent) 0%, rgba(240, 210, 160, 0.65) 100%);
+      border-radius: 15px;
+      padding: 30px;
+      color: var(--empire-dark);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      border: 3px solid var(--empire-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #tools-widget::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(232, 185, 35, 0.08) 0%, transparent 70%);
+      animation: rotateLight 10s infinite linear;
+      z-index: 0;
+    }
+
+    @keyframes rotateLight {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #tools-widget p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+    #tools-widget select {
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      border: 2px solid var(--empire-dark);
+      background: linear-gradient(135deg, var(--empire-light-transparent) 0%, rgba(240, 210, 160, 0.65) 100%);
+      color: var(--empire-dark);
+      width: 100%;
+      max-width: 350px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    #tools-widget select:hover {
+      transform: scale(1.05);
+    }
+
+    #toolInfo {
+      margin-top: 25px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    #toolInfo img {
+      width: 200px; /* Фиксированная ширина */
+      height: 200px; /* Фиксированная высота */
+      border-radius: 8px;
+      border: 2px solid var(--empire-dark);
+      background: rgba(255, 255, 255, 0.2);
+      padding: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    #toolInfo img:hover {
+      transform: scale(1.1);
+    }
+
+    .carousel {
+      width: 100%;
+      height: 450px;
+      perspective: 1200px;
+      overflow: hidden;
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .carousel__stage {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease-out;
+      cursor: grab;
+    }
+
+    .carousel__slide {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 280px;
+      height: 400px;
+      margin: -200px -140px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      background: linear-gradient(135deg, var(--empire-light-transparent) 0%, rgba(240, 210, 160, 0.65) 100%);
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 25px;
+      transition: all 0.4s ease;
+      border: 3px solid var(--empire-dark);
+      overflow: hidden;
+    }
+
+    .carousel__slide:hover {
+      background: linear-gradient(135deg, var(--empire-transparent) 0%, rgba(90, 42, 42, 0.8) 100%);
+      transform: scale(1.1) translateZ(80px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .carousel__slide img {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 2px solid var(--empire-dark);
+      background: rgba(255, 255, 255, 0.25);
+      padding: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel__slide:hover img {
+      transform: scale(1.1);
+    }
+
+    .carousel__slide h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      margin-bottom: 15px;
+      color: var(--empire-dark);
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .carousel__slide p {
+      font-size: 1rem;
+      line-height: 1.5;
+      text-align: center;
+      font-style: italic;
+      color: var(--text-dark);
+    }
+
+    footer {
+      text-align: center;
+      background: linear-gradient(180deg, var(--empire-transparent) 0%, rgba(90, 42, 42, 0.8) 100%), url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png');
+      color: white;
+      padding: 25px;
+      font-size: 1rem;
+      border-top: 3px solid var(--accent);
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+      font-family: 'Playfair Display', serif;
+      position: relative;
+    }
+
+    footer::before {
+      content: '©';
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-right: 5px;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding-top: 180px;
+      }
+      h1.hero {
+        font-size: 2.8rem;
+      }
+      h1.hero::before, h1.hero::after {
+        font-size: 1.5rem;
+        left: 5%;
+        right: 5%;
+      }
+      section h2.hero {
+        font-size: 2rem;
+      }
+      section h2.hero::before, section h2.hero::after {
+        left: 2%;
+        right: 2%;
+      }
+      .topbar {
+        flex-direction: column;
+        text-align: center;
+      }
+      .topbar img {
+        margin-bottom: 15px;
+      }
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+      .carousel {
+        height: 350px;
+      }
+      .carousel__slide {
+        width: 220px;
+        height: 320px;
+        margin: -160px -110px;
+      }
+      .carousel__slide img {
+        max-height: 160px;
+      }
+      .carousel__slide h2 {
+        font-size: 1.4rem;
+      }
+      .carousel__slide p {
+        font-size: 0.9rem;
+      }
+      #toolInfo img {
+        max-width: 80px;
+        max-height: 80px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding-top: 200px;
+      }
+      h1.hero {
+        font-size: 2.2rem;
+      }
+      section h2.hero {
+        font-size: 1.7rem;
+      }
+      .carousel {
+        height: 300px;
+      }
+      .carousel__slide {
+        width: 180px;
+        height: 260px;
+        margin: -130px -90px;
+      }
+      .carousel__slide img {
+        max-height: 130px;
+      }
+      #toolInfo img {
+        max-width: 60px;
+        max-height: 60px;
+      }
+    }
+
+
+#quizContainer {
+  background: linear-gradient(135deg, var(--wood-light-transparent) 0%, rgba(160, 122, 99, 0.9) 100%);
+  background-size: 300px;
+  padding: 25px;
+  border: 3px solid var(--wood-dark);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(1, 2, 3, 4);
+  color: black;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+
+#questionBox p,
+#quizResult p {
+  font-family: 'black', cursive;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+#answers label {
+  display: block;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+#nextBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: var(--accent);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#nextBtn:hover {
+  background-color: #8e3f1f;
+  transform: scale(1.05);
+}
+    .options label {
+      display: block;
+      margin-bottom: 10px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid var(--stone-dark);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .options input[type="radio"] {
+      margin-right: 10px;
+    }
+    .options label:hover {
+      background: var(--accent);
+      color: white;
+    }
+    .next-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      border: none;
+      background: var(--stone-dark);
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .next-btn:hover {
+      background: var(--accent);
+      color: var(--stone-dark);
+    }
+
+    /* Имперский стиль для блока истории профессий */
+.imperial-history-section {
+  padding: 4rem 1rem;
+  position: relative;
+  background: linear-gradient(135deg, var(--main-bg) 0%, #f0e0c0 100%), 
+              url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png');
+  background-blend-mode: overlay;
+  background-size: auto;
+}
+
+.imperial-history-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 75% 25%, rgba(232, 185, 35, 0.1) 0%, transparent 60%);
+  z-index: 0;
+  animation: imperial-glow 8s infinite alternate;
+}
+
+@keyframes imperial-glow {
+  0% { opacity: 0.1; }
+  100% { opacity: 0.2; }
+}
+
+.ih-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.ih-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--empire-dark);
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(90, 42, 42, 0.1);
+}
+
+.ih-title::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(232, 185, 35, 0.4);
+}
+
+.ih-content {
+  background: linear-gradient(135deg, var(--empire-light-transparent) 0%, rgba(240, 210, 160, 0.7) 100%), 
+              url('https://www.transparenttextures.com/patterns/cream-paper.png');
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(90, 42, 42, 0.1);
+  border: 1px solid rgba(90, 42, 42, 0.2);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+}
+
+.ih-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(232, 185, 35, 0.05) 0%, transparent 100%);
+  z-index: 0;
+}
+
+.ih-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ih-action {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.ih-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 2.2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--empire-dark);
+  text-decoration: none;
+  background: linear-gradient(135deg, rgba(232, 185, 35, 0.3) 0%, rgba(232, 185, 35, 0.4) 100%);
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(232, 185, 35, 0.2);
+  border: 1px solid rgba(90, 42, 42, 0.3);
+}
+
+.ih-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.6s;
+}
+
+.ih-button:hover {
+  background: linear-gradient(135deg, rgba(232, 185, 35, 0.4) 0%, rgba(232, 185, 35, 0.5) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(232, 185, 35, 0.3);
+}
+
+.ih-button:hover::before {
+  left: 100%;
+}
+
+.ih-button:hover .ih-icon {
+  transform: translateX(5px);
+}
+
+.ih-icon {
+  transition: transform 0.3s ease;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .imperial-history-section {
+    padding: 3rem 1rem;
+  }
+  
+  .ih-title {
+    font-size: 2.2rem;
+  }
+  
+  .ih-content {
+    padding: 1.8rem;
+  }
+  
+  .ih-description {
+    font-size: 1.1rem;
+  }
+  
+  .ih-button {
+    font-size: 1.1rem;
+    padding: 0.8rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ih-title {
+    font-size: 1.8rem;
+  }
+  
+  .ih-content {
+    padding: 1.5rem;
+  }
+  
+  .ih-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .ih-button {
+    font-size: 1rem;
+    padding: 0.7rem 1.8rem;
+  }
+}
